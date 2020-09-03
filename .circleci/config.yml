@@ -28,8 +28,8 @@ jobs:
       - run: cd front-end && npm test
 
 workflows:
-  version: 2.1
-  build:
+  # version: 2.1
+  # build:
       jobs: 
           - backend
           - front-end
