@@ -3,9 +3,9 @@ version: 2.1
 jobs:
   backend: 
     docker: 
-        - image: circleci/node@3.0.0
+    - image: circleci/node@3.0.0
 
-    working_directory: ~/birdie-test/backend
+    working_directory: ~/birdie-test
 
     steps:
       - checkout
@@ -15,9 +15,9 @@ jobs:
       
   front-end:
     docker: 
-        - image: circleci/node@3.0.0
+    - image: circleci/node@3.0.0
 
-    working_directory: ~/birdie-test/front-end
+    working_directory: ~/birdie-test
 
     steps: 
       - checkout
