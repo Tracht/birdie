@@ -13,7 +13,7 @@ jobs:
       - run: cd backend/functions && npm format
       - run: cd backend/functions && npm lint
       - run: cd backend/functions && npm run
-      - run: cd backend/functions && npm test:watch
+      - run: cd backend/functions && npm test
       
    frontend:
       docker: 
