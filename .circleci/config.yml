@@ -27,4 +27,6 @@ jobs:
 
 workflows:
   version: 2.1
-  jobs: backend, front-end
+  jobs: 
+    - backend
+    - front-end
