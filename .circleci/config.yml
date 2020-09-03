@@ -8,7 +8,7 @@ jobs:
     working_directory: ~/birdie-test/backend
 
     steps:
-    - type: checkout
+    - checkout
     - run: cd backend/functions && npm install
     - run: cd backend/functions && npm run dev
     - run: cd backend/functions && npm test
@@ -20,7 +20,7 @@ jobs:
     working_directory: ~/birdie-test/front-end
 
     steps: 
-    - type: checkout
+    - checkout
     - run: cd front-end && npm install
     - run: cd front-end && npm start
     - run: cd front-end && npm test
@@ -28,7 +28,7 @@ jobs:
 workflows:
   version: 2.1
   build:
-    jobs: 
-      - backend
-      - front-end
+      jobs: 
+          - backend
+          - front-end
 
