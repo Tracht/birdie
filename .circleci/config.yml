@@ -30,7 +30,7 @@ jobs:
 workflows:
   version: 2.1
   # build:
-      jobs: 
+    jobs: 
           - backend
           - front-end
 
