@@ -20,7 +20,7 @@ jobs:
     working_directory: ~/birdie-test
 
     steps: 
-    - checkout: 
+    - type: checkout
     - run: cd front-end && npm install
     - run: cd front-end && npm start
     - run: cd front-end && npm test
