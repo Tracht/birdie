@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run: cd backend && npm install
-      - run: cd backend && npm run dev
+      # - run: cd backend && npm run dev
       - run: cd backend && npm test
       
   front-end:
@@ -24,7 +24,7 @@ jobs:
     steps: 
       - checkout
       - run: cd front-end && npm install
-      - run: cd front-end && npm start
+      # - run: cd front-end && npm start
       - run: cd front-end && npm test
 
 workflows:
