@@ -6,6 +6,8 @@ jobs:
   backend: 
     # docker: 
     # - image: circleci/node@3.0.0
+    executor:
+      name: node/default
 
     working_directory: ~/birdie-test
 
@@ -18,6 +20,8 @@ jobs:
   front-end:
     # docker: 
     # - image: circleci/node@3.0.0
+    executor:
+      name: node/default
 
     working_directory: ~/birdie-test
 
@@ -30,7 +34,7 @@ jobs:
 workflows:
   # version: 2.1
   # build:
-      jobs: 
+      jobs:
           - backend
           - front-end
 
