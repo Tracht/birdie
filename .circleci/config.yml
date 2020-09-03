@@ -28,5 +28,9 @@ jobs:
 workflows:
   version: 2.1
   jobs: 
-    - backend
-    - front-end
+    - backend:
+        requires: 
+          - test
+    - front-end:
+        requires: 
+          - test
