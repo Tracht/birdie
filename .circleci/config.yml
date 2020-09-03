@@ -2,13 +2,6 @@ version: 2.1
 orbs: 
   node: circleci/node@3.0.0
 
-workflows: 
-  version: 2
-  concurrently: 
-    jobs: 
-      - backend
-      - front-end
-
 workflows:   
   node-tests:
     jobs:
@@ -27,3 +20,10 @@ workflows:
     - run: cd front-end && npm install
     - run: cd front-end && npm start
     - run: cd front-end && npm test
+
+workflows: 
+  version: 2
+  concurrently: 
+    jobs: 
+      - backend
+      - front-end
