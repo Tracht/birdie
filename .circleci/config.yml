@@ -4,8 +4,6 @@ orbs:
 
 jobs:
   backend: 
-    # docker: 
-    # - image: circleci/node@3.0.0
     executor:
       name: node/default
 
@@ -13,13 +11,11 @@ jobs:
 
     steps:
       - checkout
-      - run: cd backend/functions && npm install
-      - run: cd backend/functions && npm run dev
-      - run: cd backend/functions && npm test
+      - run: cd backend && npm install
+      - run: cd backend && npm run dev
+      - run: cd backend && npm test
       
   front-end:
-    # docker: 
-    # - image: circleci/node@3.0.0
     executor:
       name: node/default
 
