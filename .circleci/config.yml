@@ -1,24 +1,32 @@
-workflows: 
-  version: 2.1  
-  orbs: 
-    node: circleci/node@3.0.0
-  # node-tests:
-    concurrently:
-    jobs:
-      - backend
-      - front-end
-    backend:
-    working_directory: ~/birdie-test/backend
+version: 2.1 
+
+jobs:
+  backend: 
+    docker: 
+      - image: circleci/node@3.0.0
+
+    working_directory: ~/birdie-test
+
     steps:
     - type: checkout
     - run: cd backend/functions && npm install
     - run: cd backend/functions && npm run dev
     - run: cd backend/functions && npm test
       
-    front-end:
-    working_directory: ~/birdie-test/front-end
+  front-end:
+    docker: 
+      - image: circleci/node@3.0.0
+
+    working_directory: ~/birdie-test
+
     steps: 
     - checkout: 
     - run: cd front-end && npm install
     - run: cd front-end && npm start
     - run: cd front-end && npm test
+
+workflows:
+  version: 2.1
+    jobs:
+      - backend
+      - front-end
