@@ -13,17 +13,17 @@ workflows:
   node-tests:
     jobs:
     backend:
-      working_directory: ~/birdie-test/backend
-      steps:
-      - type: checkout
-      - run: cd backend/functions && npm install
-      - run: cd backend/functions && npm run dev
-      - run: cd backend/functions && npm test
+    working_directory: ~/birdie-test/backend
+    steps:
+    - type: checkout
+    - run: cd backend/functions && npm install
+    - run: cd backend/functions && npm run dev
+    - run: cd backend/functions && npm test
       
     front-end:
-      working_directory: ~/birdie-test/front-end
-        steps: 
-        - checkout: 
-        - run: cd front-end && npm install
-        - run: cd front-end && npm start
-        - run: cd front-end && npm test
+    working_directory: ~/birdie-test/front-end
+    steps: 
+    - checkout: 
+    - run: cd front-end && npm install
+    - run: cd front-end && npm start
+    - run: cd front-end && npm test
