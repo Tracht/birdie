@@ -3,27 +3,27 @@ version: 2.1
 jobs:
   backend: 
     docker: 
-      - image: circleci/node@3.0.0
+          - image: circleci/node@3.0.0
 
     working_directory: ~/birdie-test/backend
 
     steps:
-    - checkout
-    - run: cd backend/functions && npm install
-    - run: cd backend/functions && npm run dev
-    - run: cd backend/functions && npm test
+      - checkout
+      - run: cd backend/functions && npm install
+      - run: cd backend/functions && npm run dev
+      - run: cd backend/functions && npm test
       
   front-end:
     docker: 
-      - image: circleci/node@3.0.0
+          - image: circleci/node@3.0.0
 
     working_directory: ~/birdie-test/front-end
 
     steps: 
-    - checkout
-    - run: cd front-end && npm install
-    - run: cd front-end && npm start
-    - run: cd front-end && npm test
+      - checkout
+      - run: cd front-end && npm install
+      - run: cd front-end && npm start
+      - run: cd front-end && npm test
 
 workflows:
   version: 2.1
