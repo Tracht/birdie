@@ -1,6 +1,9 @@
 import * as express from "express";
 import { db } from '../database/database';
 
+// Returns results for the most recent day that care was provided (filtered by Timestamp column)
+// Returns all the mental health observation notes
+// The bulk of the query converts timestamp to UTC so that filtering by date works properly
 var mentalHealthObservation = ( 
   function (err: string, callback: Function ) { 
     if (err) throw err; 
@@ -12,6 +15,7 @@ var mentalHealthObservation = (
   }
 );
 
+// The controller
 export const mentalHealthObsController = express.Router();
 
 mentalHealthObsController.get('/mental-health', (_, res) => {
