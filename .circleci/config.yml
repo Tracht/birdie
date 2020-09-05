@@ -5,14 +5,28 @@ orbs:
 
 jobs:
   backend: 
-    executor:
-      name: node/default
+    # executor:
+    #   name: node/default
+    build:
+      docker:   
+        # specify system properties
+        environment: 
+          DB_HOST : $DB_NAME
+          DB_URL  : $DB_HOST
+          DB_USER : $DB_USER
+          DB_PASS : $DB_PASSWORD
+          - image: circleci/mysql:latest
 
     working_directory: ~/birdie-test
 
     steps:
       - checkout
       - run: cd backend && npm install
+      - run: 
+          name: Wait for Database Connection
+          # preinstalled in circleci/* docker image
+          command: dockerize -wait tcp://localhost:8000 -timeout 1m
+      - run: sudo apt-get install mysql-client    
       - run: cd backend && npm test
       
   front-end:
