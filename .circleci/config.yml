@@ -5,10 +5,13 @@ orbs:
 
 jobs:
   backend: 
-    executor:
-      name: node/default
+    # executor:
+    #   name: node/default
     build:
       docker:
+        # name: node/default
+        - image: buildpack-deps:trusty
+        - image: circleci/node:14.3.0
         - image: circleci/mysql:latest
         environment: 
           DB_HOST : $DB_NAME
