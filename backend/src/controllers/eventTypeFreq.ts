@@ -1,6 +1,9 @@
 import * as express from "express";
 import { db } from '../database/database';
 
+// Returns results for the most recent day that care was provided (filtered by Timestamp column)
+// And shows the frequency of all event types (i.e. number of mood observations, number of fluid intake observations)
+// The bulk of the query converts timestamp to UTC so that filtering by date works properly
 var eventTypeFreq = ( 
   function (err: string, callback: Function ) { 
     if (err) throw err; 
@@ -12,6 +15,7 @@ var eventTypeFreq = (
   }
 );
 
+// The Controller 
 export const eventTypeFreqController = express.Router();
 
 eventTypeFreqController.get('/event-type-freq', (_, res) => {
