@@ -18,7 +18,7 @@ var generalObservationNote = (
 // The controller 
 export const generalObsController = express.Router();
 
-generalObsController.get('/general-obs-note', (_, res) => {
+generalObsController.get('/general-obs', (_, res) => {
   generalObservationNote("", function(result:any){
   res.status(200).json({
     result
