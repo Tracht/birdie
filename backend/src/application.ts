@@ -8,6 +8,7 @@ import {completedVisitsController} from "./controllers/completedVisits";
 import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckInOutTimes";
 import {eventTypeFreqController} from "./controllers/eventTypeFreq";
 import {generalObsController} from "./controllers/generalObs";
+import {moodObsController} from "./controllers/moodObs";
 import {mentalHealthObsController} from "./controllers/mentalHealthObs";
 import {physicalHealthObsController} from "./controllers/physicalHealthObs";
 
@@ -18,6 +19,7 @@ app.use(caregiverCheckInOutTimesController);
 app.use(eventTypeFreqController);
 app.use(generalObsController);
 app.use(mentalHealthObsController);
+app.use(moodObsController);
 app.use(physicalHealthObsController);
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
