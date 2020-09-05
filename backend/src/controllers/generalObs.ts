@@ -1,7 +1,8 @@
 import * as express from "express";
 import { db } from '../database/database';
 
-// Returns the most recent general observation note for a particular carereceiver. 
+// Returns results for the most recent day that care was provided (filtered by Timestamp column)
+// Returns all the general observation notes 
 // The bulk of the query converts timestamp to UTC so that filtering by date works properly
 var generalObservationNote = ( 
   function (err: string, callback: Function ) { 
