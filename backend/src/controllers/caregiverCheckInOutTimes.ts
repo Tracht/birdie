@@ -1,6 +1,9 @@
 import * as express from "express";
 import { db } from '../database/database';
 
+// The query returns a list of all the caregivers and their checkin and checkout times
+// Returns results for the most recent day care was provided (filtered by Timestamp column)
+// The bulk of the query converts timestamp to UTC so that filtering by date works properly
 var caregiverCheckInOutTimes = ( 
   function (err: string, callback: Function ) { 
     if (err) throw err; 
@@ -12,6 +15,7 @@ var caregiverCheckInOutTimes = (
   }
 );
 
+// The controller 
 export const caregiverCheckInOutTimesController = express.Router();
 
 caregiverCheckInOutTimesController.get('/caregiver-checkin-checkout', (_, res) => {
