@@ -9,6 +9,7 @@ import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckIn
 import {eventTypeFreqController} from "./controllers/eventTypeFreq";
 import {generalObsController} from "./controllers/generalObs";
 import {mentalHealthObsController} from "./controllers/mentalHealthObs";
+import {physicalHealthObsController} from "./controllers/physicalHealthObs";
 
 // CONTROLLERS
 app.use(pingController);
@@ -17,6 +18,7 @@ app.use(caregiverCheckInOutTimesController);
 app.use(eventTypeFreqController);
 app.use(generalObsController);
 app.use(mentalHealthObsController);
+app.use(physicalHealthObsController);
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
 app.use(function (_req, _res, next: any) {
