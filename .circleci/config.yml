@@ -12,12 +12,12 @@ jobs:
         # name: node/default
         - image: buildpack-deps:trusty
         - image: circleci/node:14.3.0
-        - image: circleci/mysql:latest
-        environment: 
-          DB_HOST : $DB_NAME
-          DB_URL  : $DB_HOST
-          DB_USER : $DB_USER
-          DB_PASS : $DB_PASSWORD      
+        - image: circleci/mysql:5.7
+          environment: 
+            DB_HOST : $DB_NAME
+            DB_URL  : $DB_HOST
+            DB_USER : $DB_USER
+            DB_PASS : $DB_PASSWORD      
 
     working_directory: ~/birdie-test
 
