@@ -5,9 +5,9 @@ orbs:
 
 jobs:
   backend: 
-    executor:
-      name: node/default
-    # build:
+    # executor:
+    #   name: node/default
+    build:
       docker:
         # name: node/default
         - image: buildpack-deps:trusty
