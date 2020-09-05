@@ -7,7 +7,7 @@ jobs:
   backend: 
     executor:
       name: node/default
-    build:
+    # build:
       docker:
         # name: node/default
         - image: buildpack-deps:trusty
