@@ -8,8 +8,7 @@ jobs:
     executor:
       name: node/default
     build:
-      docker:   
-        # specify system properties
+      docker:
         - image: circleci/mysql:latest
         environment: 
           DB_HOST : $DB_NAME
@@ -25,7 +24,7 @@ jobs:
       - run: 
           name: Wait for Database Connection
           # preinstalled in circleci/* docker image
-          command: dockerize -wait tcp://localhost:8000 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1 -timeout 1m
       - run: sudo apt-get install mysql-client    
       - run: cd backend && npm test
       
