@@ -5,12 +5,13 @@ const createError = require("http-errors");
 
 import {pingController} from "./controllers/ping";
 import {generalObsController} from "./controllers/generalObs";
+import {completedVisitsController} from "./controllers/completedVisits";
 
 
-
-// CONTROLLERS - will get refactored into routers
+// CONTROLLERS
 app.use(pingController);
 app.use(generalObsController);
+app.use(completedVisitsController);
 
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
