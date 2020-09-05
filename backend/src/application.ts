@@ -1,13 +1,16 @@
-var createError = require("http-errors");
+
 import * as express from "express";
 const app = express();
+const createError = require("http-errors");
 
 import {pingController} from "./controllers/ping";
-import {testController} from "./controllers/test";
+import {generalObsController} from "./controllers/generalObs";
 
-// CONTROLLERS
+
+
+// CONTROLLERS - will get refactored into routers
 app.use(pingController);
-app.use(testController);
+app.use(generalObsController);
 
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
