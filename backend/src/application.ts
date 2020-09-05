@@ -7,7 +7,7 @@ import {pingController} from "./controllers/ping";
 import {completedVisitsController} from "./controllers/completedVisits";
 import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckInOutTimes";
 import {eventTypeFreqController} from "./controllers/eventTypeFreq";
-import {generalObservationController} from "./controllers/generalObs";
+import {generalObsController} from "./controllers/generalObs";
 import {mentalHealthObsController} from "./controllers/mentalHealthObs";
 
 // CONTROLLERS
@@ -15,7 +15,7 @@ app.use(pingController);
 app.use(completedVisitsController);
 app.use(caregiverCheckInOutTimesController);
 app.use(eventTypeFreqController);
-app.use(generalObservationController);
+app.use(generalObsController);
 app.use(mentalHealthObsController);
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
