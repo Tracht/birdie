@@ -12,9 +12,9 @@ var generalObservationRecent = (
   }
 );
 
-export const generalObsController = express.Router();
+export const generalObservationController = express.Router();
 
-generalObsController.get('/generalObs', (_, res) => {
+generalObservationController.get('/generalObs', (_, res) => {
   generalObservationRecent("", function(result:any){
   res.status(200).json({
     result

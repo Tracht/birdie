@@ -4,18 +4,17 @@ const app = express();
 const createError = require("http-errors");
 
 import {pingController} from "./controllers/ping";
-import {generalObsController} from "./controllers/generalObs";
 import {completedVisitsController} from "./controllers/completedVisits";
 import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckInOutTimes";
-
+import {eventTypeFreqController} from "./controllers/eventTypeFreq";
+import {generalObservationController} from "./controllers/generalObs";
 
 // CONTROLLERS
 app.use(pingController);
-app.use(generalObsController);
 app.use(completedVisitsController);
 app.use(caregiverCheckInOutTimesController);
-
-
+app.use(eventTypeFreqController);
+app.use(generalObservationController);
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
 app.use(function (_req, _res, next: any) {
