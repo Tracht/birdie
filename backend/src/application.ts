@@ -6,12 +6,15 @@ const createError = require("http-errors");
 import {pingController} from "./controllers/ping";
 import {generalObsController} from "./controllers/generalObs";
 import {completedVisitsController} from "./controllers/completedVisits";
+import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckInOutTimes";
 
 
 // CONTROLLERS
 app.use(pingController);
 app.use(generalObsController);
 app.use(completedVisitsController);
+app.use(caregiverCheckInOutTimesController);
+
 
 
 // CATCH 404 AND FORWARD TO ERROR HANDLER
