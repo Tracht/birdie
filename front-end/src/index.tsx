@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
-import store from '@App/store';
+import store from '@App/store/configureStore';
 import { Provider } from 'react-redux';
 import App from '@App/components/app/App';
 
