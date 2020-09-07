@@ -1,7 +1,7 @@
 import { applyMiddleware, compose, createStore, GenericStoreEnhancer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { rootReducer } from '@App/store/reducers';
-import initSaga from '@App/store/sagas';
+import { rootReducer } from '@App/store/reducers/reducerIndex';
+import initSaga from '@App/store/sagas/sagaIndex';
 
 var createBrowserHistory = require('history/createBrowserHistory');
 
