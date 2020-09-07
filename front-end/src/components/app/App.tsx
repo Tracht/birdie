@@ -1,41 +1,21 @@
 import * as React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
 import { RootState } from '@App/store/reducers';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-
+import { GlobalStyle, AppContainer } from './AppStyle';
 import Title from '@App/components/Title';
 import Logo from '@App/components/Logo';
 import SubTitle from '@App/components/SubTitle';
 
 const LogoUrl = require('../../assets/images/logo-birdie.svg');
 
+// Typescript declarations 
 interface AppProps {
 
 }
-
 interface AppState {
 
 }
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    height: 100vh;
-    background-color: #F9F9F9;
-    > div {
-      height: 100%;
-    }
-  }
-`;
-
-const AppContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
 
 class App extends React.Component<AppProps, AppState> {
   public constructor(props: AppProps) {
@@ -48,8 +28,8 @@ class App extends React.Component<AppProps, AppState> {
         <GlobalStyle />
         <AppContainer>
           <Logo src={LogoUrl} />
-          <Title>Welcome to the birdie test</Title>
-          <SubTitle>Best of luck!</SubTitle>
+          <Title>Welcome!</Title>
+          <SubTitle>Let's see how your loved one is doing.</SubTitle>
         </AppContainer>
       </>
     );
