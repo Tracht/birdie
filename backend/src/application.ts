@@ -3,7 +3,6 @@ import * as express from "express";
 const app = express();
 const createError = require("http-errors");
 
-import {pingController} from "./controllers/ping";
 import {completedVisitsController} from "./controllers/completedVisits";
 import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckInOutTimes";
 import {eventTypeFreqController} from "./controllers/eventTypeFreq";
@@ -13,7 +12,6 @@ import {mentalHealthObsController} from "./controllers/mentalHealthObs";
 import {physicalHealthObsController} from "./controllers/physicalHealthObs";
 
 // CONTROLLERS
-app.use(pingController);
 app.use(completedVisitsController);
 app.use(caregiverCheckInOutTimesController);
 app.use(eventTypeFreqController);
