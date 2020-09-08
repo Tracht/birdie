@@ -7,7 +7,8 @@ import { db } from '../database/database';
 var generalObservationNote = ( 
   function (err: string, callback: Function ) { 
     if (err) throw err; 
-    var databaseQuery: string = "select  JSON_EXTRACT(e.payload, '$.note') as note, t.utcDate, IF(LOCATE('Z',e.`timestamp`) > 0, DATE_FORMAT(e.`timestamp`, '%h:%i'), DATE_FORMAT(convert_tz( SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),1),'+00:00', CONCAT('+', SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),-1))),'%h:%i')) as utcTime  from events e JOIN   (SELECT *,  IF(LOCATE('Z',`timestamp`) > 0, DATE_FORMAT(`timestamp`, '%Y-%m-%d'), DATE_FORMAT(convert_tz(SUBSTRING_INDEX(`timestamp`,IF(LOCATE('+', `timestamp`) >= 20,'+', '-'),1),'+00:00',  CONCAT('+', SUBSTRING_INDEX(`timestamp`,IF(LOCATE('+', `timestamp`) >= 20,'+', '-'),-1))),'%Y-%m-%d')) as utcDate from events where event_type = 'general_observation' and `care_recipient_id` = 'df50cac5-293c-490d-a06c-ee26796f850d'  order by utcDate desc limit 1) t on t.event_type = e.event_type and t.`care_recipient_id` = e.`care_recipient_id` and t.utcDate = IF(LOCATE('Z',e.`timestamp`) > 0, DATE_FORMAT(e.`timestamp`, '%Y-%m-%d'), DATE_FORMAT(convert_tz( SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),1),'+00:00', CONCAT('+', SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),-1))),'%Y-%m-%d')) "
+    var databaseQuery: string = "select REPLACE(JSON_EXTRACT(e.payload, '$.note'), '\"','') as note, t.utcDate, IF(LOCATE('Z',e.`timestamp`) > 0, DATE_FORMAT(e.`timestamp`, '%h:%i'), DATE_FORMAT(convert_tz( SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),1),'+00:00', CONCAT('+', SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),-1))),'%h:%i')) as utcTime  from events e JOIN   (SELECT *,  IF(LOCATE('Z',`timestamp`) > 0, DATE_FORMAT(`timestamp`, '%Y-%m-%d'), DATE_FORMAT(convert_tz(SUBSTRING_INDEX(`timestamp`,IF(LOCATE('+', `timestamp`) >= 20,'+', '-'),1),'+00:00',  CONCAT('+', SUBSTRING_INDEX(`timestamp`,IF(LOCATE('+', `timestamp`) >= 20,'+', '-'),-1))),'%Y-%m-%d')) as utcDate from events where event_type = 'general_observation' and `care_recipient_id` = 'df50cac5-293c-490d-a06c-ee26796f850d'  order by utcDate desc limit 1) t on t.event_type = e.event_type and t.`care_recipient_id` = e.`care_recipient_id` and t.utcDate = IF(LOCATE('Z',e.`timestamp`) > 0, DATE_FORMAT(e.`timestamp`, '%Y-%m-%d'), DATE_FORMAT(convert_tz( SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),1),'+00:00', CONCAT('+', SUBSTRING_INDEX(e.`timestamp`,IF(LOCATE('+', e.`timestamp`) >= 20,'+', '-'),-1))),'%Y-%m-%d')); "
+
     return db.query(databaseQuery, function (err: string, result: any) { 
       if (err) throw err; 
       return callback(result);
@@ -15,14 +16,28 @@ var generalObservationNote = (
   }
 );
 
+// [
+//   {"note":"\"[redacted] ok on arrival pad was dry heated up tea gave her baclofen couldn’t give paracetamol not enough gap washed up and put away had a nice chat with [redacted] freshen up drinks all seem ok on leave [redacted] eating and watching tv \"","utcDate":"2019-05-12","utcTime":"02:19"},
+//   {"note":"\"Assisted with pad change . Changed bedding put wash on . Had a chat \"","utcDate":"2019-05-12","utcTime":"07:22"},
+//   {"note":"\"Assisted with pad change gave meds left [redacted] to complete visit . \"","utcDate":"2019-05-12","utcTime":"11:48"},
+//   {"note":"\"Assisted with pad change.  And putting to bed \"","utcDate":"2019-05-12","utcTime":"06:51"}
+// ]
+
+// const prettyResult: Function = (result: any) => {
+
+//  return result.forEach((element:any) => {
+//       element["note"] = "note".substring(2)
+//     });
+// }
+
 // The controller 
 export const generalObsController = express.Router();
 
 generalObsController.get('/general-obs', (_, res) => {
   generalObservationNote("", function(result:any){
-  res.status(200).json({
+  res.status(200).send({
     result
-  });
+  })
 });
 });
 
