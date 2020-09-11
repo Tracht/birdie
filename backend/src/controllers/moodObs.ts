@@ -20,9 +20,7 @@ export const moodObsController = express.Router();
 
 moodObsController.get('/mood', (_, res) => {
   moodObservation("", function(result:any){
-  res.status(200).json({
-    result
-  });
+  res.status(200).json(result);
 });
 });
 

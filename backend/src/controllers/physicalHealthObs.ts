@@ -20,9 +20,7 @@ export const physicalHealthObsController = express.Router();
 
 physicalHealthObsController.get('/physical-health', (_, res) => {
   physicalHealthObservation("", function(result:any){
-  res.status(200).json({
-    result
-  });
+  res.status(200).json(result);
 });
 });
 

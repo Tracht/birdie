@@ -18,10 +18,8 @@ var caregiverCheckInOutTimes = (
 // The controller 
 export const caregiverCheckInOutTimesController = express.Router();
 
-caregiverCheckInOutTimesController.get('/caregiver-checkin-checkout', (_, res) => {
+caregiverCheckInOutTimesController.get('/checkin-checkout', (_, res) => {
   caregiverCheckInOutTimes("", function(result:any){
-  res.status(200).json({
-    result
-  });
+  res.status(200).json(result);
 });
 });

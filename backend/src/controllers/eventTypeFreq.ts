@@ -21,8 +21,6 @@ export const eventTypeFreqController = express.Router();
 
 eventTypeFreqController.get('/event-type-freq', (_, res) => {
   eventTypeFreq("", function(result:any){
-  res.status(200).send(
-     {"eventTypeFreq" : result} 
-  );
+  res.status(200).send(result);
 });
 });

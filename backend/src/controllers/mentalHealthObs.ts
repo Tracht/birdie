@@ -20,9 +20,7 @@ export const mentalHealthObsController = express.Router();
 
 mentalHealthObsController.get('/mental-health', (_, res) => {
   mentalHealthObservation("", function(result:any){
-  res.status(200).json({
-    result
-  });
+  res.status(200).json(result);
 });
 });
 

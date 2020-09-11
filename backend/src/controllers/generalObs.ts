@@ -23,21 +23,12 @@ var generalObservationNote = (
 //   {"note":"\"Assisted with pad change.  And putting to bed \"","utcDate":"2019-05-12","utcTime":"06:51"}
 // ]
 
-// const prettyResult: Function = (result: any) => {
-
-//  return result.forEach((element:any) => {
-//       element["note"] = "note".substring(2)
-//     });
-// }
-
 // The controller 
 export const generalObsController = express.Router();
 
 generalObsController.get('/general-obs', (_, res) => {
   generalObservationNote("", function(result:any){
-  res.status(200).send({
-    result
-  })
+  res.status(200).send(result)
 });
 });
 

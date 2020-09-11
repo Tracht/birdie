@@ -20,8 +20,6 @@ export const completedVisitsController = express.Router();
 
 completedVisitsController.get('/completed-visits', (_, res) => {
   completedVisits("", function(result:any){
-  res.status(200).json({
-    result
-  });
+  res.status(200).json(result);
 });
 });
