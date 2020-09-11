@@ -2,6 +2,7 @@ import { applyMiddleware, compose, createStore, GenericStoreEnhancer } from 'red
 import createSagaMiddleware from 'redux-saga';
 import { rootReducer } from '@App/store/reducers/reducerIndex';
 import initSaga from '@App/store/sagas/sagaIndex';
+// import { DataState } from './types';
 
 var createBrowserHistory = require('history/createBrowserHistory');
 
@@ -26,3 +27,13 @@ const store = createStore(
 sagaMiddleware.run(initSaga);
 
 export default store;
+
+// export const mapStateToProps = (state: RootState, ownProps: object): DataState => ({
+//   events: state.data.events,
+//   fluid_obs: state.data.fluid_obs,
+//   food_obs: state.data.food_obs,
+//   general_obs: state.data.general_obs,
+//   moods: state.data.moods,
+//   medication: state.data.medication,
+//   tasks: state.data.tasks
+// });

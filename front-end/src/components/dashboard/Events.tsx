@@ -3,20 +3,20 @@ import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-var data = { "eventTypeFreq": [ 
-  {"eventType":"check_in","count":9},{"eventType":"check_out","count":8},
-  {"eventType":"fluid_intake_observation","count":9},
-  {"eventType":"food_intake_observation","count":4},
-  {"eventType":"general_observation","count":4},
-  {"eventType":"incontinence_pad_observation","count":4},
-  {"eventType":"mental_health_observation","count":1},
-  {"eventType":"mood_observation","count":1},
-  {"eventType":"regular_medication_taken","count":9},
-  {"eventType":"task_completed","count":27},
-  {"eventType":"task_completion_reverted","count":1},
-  {"eventType":"visit_completed","count":8}
-  ]
-}
+// var data = { "eventTypeFreq": [ 
+//   {"eventType":"check_in","count":9},{"eventType":"check_out","count":8},
+//   {"eventType":"fluid_intake_observation","count":9},
+//   {"eventType":"food_intake_observation","count":4},
+//   {"eventType":"general_observation","count":4},
+//   {"eventType":"incontinence_pad_observation","count":4},
+//   {"eventType":"mental_health_observation","count":1},
+//   {"eventType":"mood_observation","count":1},
+//   {"eventType":"regular_medication_taken","count":9},
+//   {"eventType":"task_completed","count":27},
+//   {"eventType":"task_completion_reverted","count":1},
+//   {"eventType":"visit_completed","count":8}
+//   ]
+// }
 
 // Typescript declarations 
 interface EventsProps {

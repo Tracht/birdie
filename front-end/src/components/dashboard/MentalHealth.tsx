@@ -3,10 +3,9 @@ import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-
-var data = [
-  {"mental_health_note":" ","utcDate":"2019-05-12","utcTime":"06:53"}
-]
+// var data = [
+//   {"mental_health_note":" ","utcDate":"2019-05-12","utcTime":"06:53"}
+// ]
 
 // Typescript declarations 
 interface MentalHealthProps {
@@ -26,25 +25,23 @@ class MentalHealth extends React.Component<MentalHealthProps, MentalHealthState>
 
   render() {
     return(
-      <div>
+      // <div>
         <h1>Today's mental health observations</h1>
-        <table>
-          <tr>
-            <th>Notes</th>
-            <th>Time</th>
-          </tr>
-          {data.map((element: any) => {
-            return (
-              <tr>
-                <td>{element.mental_health_note ? element.mental_health_note : "-"}</td>
-                <td>{element.utcTime}</td>
-              </tr>
-            );
-          })}
-        </table>
-      </div>
-      
-
+      //   <table>
+      //     <tr>
+      //       <th>Notes</th>
+      //       <th>Time</th>
+      //     </tr>
+      //     {data.map((element: any) => {
+      //       return (
+      //         <tr>
+      //           <td>{element.mental_health_note ? element.mental_health_note : "-"}</td>
+      //           <td>{element.utcTime}</td>
+      //         </tr>
+      //       );
+      //     })}
+      //   </table>
+      // </div>
     );
   }
 

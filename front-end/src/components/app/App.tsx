@@ -1,62 +1,66 @@
 import * as React from 'react';
-import { RootState } from '@App/store/reducers/reducerIndex';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { GlobalStyle, AppContainer } from './AppStyle';
+// import { RootState } from '@App/store/reducers/reducerIndex';
+// import { connect } from 'react-redux';
+// import { Dispatch } from 'redux';
+import { GlobalStyle, AppContainer, Logo, Title, SubTitle } from './AppStyle';
 
-import Title from '@App/components/Title';
-import Logo from '@App/components/Logo';
-import SubTitle from '@App/components/SubTitle';
-// import Button from '@App/components/Button';
-
+import Button from '@App/components/Button';
+import Dashboard from '../dashboard/Dashboard';
 const LogoUrl = require('../../assets/images/logo-birdie.svg');
 
-// Typescript declarations 
-interface AppProps {
-
+interface AppState {
+  isHomePageHidden?: boolean;
+  toggleHomePageHidden?: boolean;
 }
 
-interface AppState {
-  // isOnHomePage: boolean,
-  // showDashboard: Function,
+interface AppProps {
+  isHomePageHidden?: boolean;
+  toggleHomePageHidden?: boolean;
 }
 
 class App extends React.Component<AppProps, AppState> {
 
   constructor(props: AppProps) {
     super(props);
+    this.state = { isHomePageHidden: false };
+    this.toggleHomePageHidden = this.toggleHomePageHidden.bind(this);
+  }
 
+  toggleHomePageHidden () {
+    this.setState({
+      isHomePageHidden: !this.state.isHomePageHidden
+    });
   }
 
   render() {
-    // const isOnHomePage = this.state.isOnHomePage;
+    const isHomePageHidden = this.state.isHomePageHidden;
 
-    // if ( isOnHomePage === true ) {
+    if ( isHomePageHidden === false ) {
       return(
-        <>
+        <div>
           <GlobalStyle />
           <AppContainer>
             <Logo src={LogoUrl} />
-            <Title>Welcome</Title>
-            <SubTitle>Let's see how your loved one is doing</SubTitle>
-            {/* <Button onClick={this.showDashboard}>Go to dashboard!</Button> */}
+            <Title> Welcome </Title>
+            <SubTitle> Let's see how your loved one is doing </SubTitle>
+            <Button onClick={this.toggleHomePageHidden} > Go to dashboard! </Button>
           </AppContainer>
-        </>
+        </div>
       ); 
-    // } else {
-    //     return(
-    //     <>
-    //       <GlobalStyle />
-    //       <AppContainer>
-    //         {/* <Dashboard /> */}
-    //         <h1>Dashboard</h1>
-    //       </AppContainer>
-    //     </>
-    //     )
-    
+    } else {
+        return(
+        <div>
+          <GlobalStyle />
+          <AppContainer>
+            <Logo src={LogoUrl} />
+            <Button onClick={this.toggleHomePageHidden} > Go to homepage </Button>
+            <Dashboard />
+          </AppContainer>
+        </div>
+        );
+      }
   }
-}
 
-const mapStateToProps = (state: RootState, ownProps: object) => {};
-const mapDispatchToProps = (dispatch: Dispatch<RootState>) => {};
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+} 
+
+export default App; 

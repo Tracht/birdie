@@ -3,12 +3,11 @@ import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-
-var data = [
-  {"physical_health_note":"\"[redacted] is well and happy \"","utcDate":"2019-05-11","utcTime":"03:35"},
-  {"physical_health_note":"\"[redacted] well \"","utcDate":"2019-05-11","utcTime":"07:20"},
-  {"physical_health_note":"\"[redacted] well. \"","utcDate":"2019-05-11","utcTime":"07:09"}
-]
+// var data = [
+//   {"physical_health_note":"\"[redacted] is well and happy \"","utcDate":"2019-05-11","utcTime":"03:35"},
+//   {"physical_health_note":"\"[redacted] well \"","utcDate":"2019-05-11","utcTime":"07:20"},
+//   {"physical_health_note":"\"[redacted] well. \"","utcDate":"2019-05-11","utcTime":"07:09"}
+// ]
 
 // Typescript declarations 
 interface PhysicalHealthProps {
@@ -28,25 +27,23 @@ class PhysicalHealth extends React.Component<PhysicalHealthProps, PhysicalHealth
 
   render() {
     return(
-      <div>
+      // <div>
         <h1>Today's physical health observations</h1>
-        <table>
-          <tr>
-            <th>Notes</th>
-            <th>Time</th>
-          </tr>
-          {data.map((element: any) => {
-            return (
-              <tr>
-                <td>{element.physical_health_note ? element.physical_health_note : "-"}</td>
-                <td>{element.utcTime}</td>
-              </tr>
-            );
-          })}
-        </table>
-      </div>
-      
-
+      //   <table>
+      //     <tr>
+      //       <th>Notes</th>
+      //       <th>Time</th>
+      //     </tr>
+      //     {data.map((element: any) => {
+      //       return (
+      //         <tr>
+      //           <td>{element.physical_health_note ? element.physical_health_note : "-"}</td>
+      //           <td>{element.utcTime}</td>
+      //         </tr>
+      //       );
+      //     })}
+      //   </table>
+      // </div>
     );
   }
 
