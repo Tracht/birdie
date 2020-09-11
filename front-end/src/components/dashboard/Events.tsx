@@ -6,20 +6,20 @@ import { Dispatch } from 'redux';
 import { DashboardTitle } from './DashboardStyle';
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
 
-// var data = [ 
-//   {'eventType' : 'check_in', 'count' : 9}, 
-//   {'eventType' : 'check_out', 'count' : 8},
-//   {'eventType' : 'fluid_intake_observation', 'count' : 9},
-//   {'eventType' : 'food_intake_observation', 'count' : 4},
-//   {'eventType' : 'general_observation', 'count' : 4},
-//   {'eventType' : 'incontinence_pad_observation', 'count' : 4},
-//   {'eventType' : 'mental_health_observation', 'count' : 1},
-//   {'eventType' : 'mood_observation', 'count' : 1},
-//   {'eventType' : 'regular_medication_taken', 'count' : 9},
-//   {'eventType' : 'task_completed', 'count' : 27},
-//   {'eventType' : 'task_completion_reverted', 'count' : 1},
-//   {'eventType' : 'visit_completed', 'count' : 8}
-// ];
+var data = [ 
+  {'eventType' : 'check_in', 'count' : 9}, 
+  {'eventType' : 'check_out', 'count' : 8},
+  {'eventType' : 'fluid_intake_observation', 'count' : 9},
+  {'eventType' : 'food_intake_observation', 'count' : 4},
+  {'eventType' : 'general_observation', 'count' : 4},
+  {'eventType' : 'incontinence_pad_observation', 'count' : 4},
+  {'eventType' : 'mental_health_observation', 'count' : 1},
+  {'eventType' : 'mood_observation', 'count' : 1},
+  {'eventType' : 'regular_medication_taken', 'count' : 9},
+  {'eventType' : 'task_completed', 'count' : 27},
+  {'eventType' : 'task_completion_reverted', 'count' : 1},
+  {'eventType' : 'visit_completed', 'count' : 8}
+];
 
 // // Typescript declarations 
 // interface EventsProps {
@@ -39,22 +39,25 @@ class Events extends React.Component {
   render() {
     return(
       <div>
-        <DashboardTitle>Today's overview</DashboardTitle>
+        <DashboardTitle>Snapshot: Total Observations</DashboardTitle>
 
         <TableWrapper>
-          <Table> Total observations
+          <Table>
+            <TableHeader>Event </TableHeader>
             <TableHeader>Count </TableHeader>
-            {/* { data.map( (element: any, index: number) => {
-              return (
-              <TableRow key={index}>
-                <TableDetail key={index}> {element.eventType.value} </TableDetail>
-              </TableRow>
-              );
-            })
-            } */}
-            <TableRow> 
-              <TableDetail>Hi</TableDetail>
-            </TableRow>
+            { data.map((element: Object, index: number) => {
+              // Object.keys(element).forEach(key: string => {
+                let objKey1 = 'eventType'; 
+                let objKey2 = 'count'; 
+                return (
+                  <TableRow key={index}>
+                    <TableDetail key={index}> {element[objKey1]} </TableDetail>
+                    <TableDetail key={index}> {element[objKey2]} </TableDetail>
+                  </TableRow>
+                );
+              // }
+              })
+            }
           </Table>
         </TableWrapper>
 
