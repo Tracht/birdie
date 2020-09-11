@@ -2,50 +2,55 @@ import * as React from 'react';
 import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
+import { DashboardTitle } from './DashboardStyle';
 
-// var data = { "result": [ 
-//   {"count":3,"caregiver_id":"3cacba0a-6041-11e9-b63f-06a80bfbb33e"},
-//   {"count":2,"caregiver_id":"5c9090ab-7d5e-4a72-8bf7-197190ad4c98"},
-//   {"count":1,"caregiver_id":"868ffde9-b069-4af5-8835-c4ac4e72e4b5"},
-//   {"count":2,"caregiver_id":"f7a00df5-bbc4-4ad7-9918-c07e16e709f6"}
-//   ]
+var data = [ 
+  { 'count' : 3, 'caregiver_id' : '3cacba0a-6041-11e9-b63f-06a80bfbb33e' },
+  { 'count' : 2, 'caregiver_id' : '5c9090ab-7d5e-4a72-8bf7-197190ad4c98' },
+  { 'count' : 1, 'caregiver_id' : '868ffde9-b069-4af5-8835-c4ac4e72e4b5' },
+  { 'count' : 2, 'caregiver_id' : 'f7a00df5-bbc4-4ad7-9918-c07e16e709f6' }
+  ]; 
+  
+// Typescript declarations 
+// interface CaregiverVisitsProps {
 // }
 
-// Typescript declarations 
-interface CaregiverVisitsProps {
-
-}
-
-interface CaregiverVisitsState {
-}
+// interface CaregiverVisitsState {
+// }
 
 // Create the Dasboard Component
-class CaregiverVisits extends React.Component<CaregiverVisitsProps, CaregiverVisitsState> {
+class CaregiverVisits extends React.Component {
 
-  constructor(props: CaregiverVisitsProps) {
-    super(props);
+  // constructor() {
+  //   super();
+  // }
 
-  }
+  // componentDidMount() {
+  //   this.props.getData("http://localhost:8000/completed-visits");
+  // }
 
   render() {
     return(
-      // <div>
-        <h1>Today's care summary: number of visits and caregivers</h1>
-      //   <table>
-      //     <tr>
-      //       <th>Number of visits </th> 
-      //       <th>Caregiver ID</th>
-      //     </tr>
-      //     {data.map((element: any) => {
-      //       return (
-      //         <tr>
-      //           <td>{element.count}</td>
-      //           <td>{element.caregiver_id}</td>
-      //         </tr>
-      //       );
-      //     })}
-      //   </table>
-      // </div>
+
+      <div>
+        <DashboardTitle>Frequency of caregiver visits</DashboardTitle>
+          <TableWrapper>
+            <Table>
+              <TableHeader>Number of Visits</TableHeader>
+              <TableHeader>Caregiver ID</TableHeader>
+              { data.map( (element, index) => {
+                return (
+                <TableRow key={index}>
+                  <TableDetail key={index}> {element.count} </TableDetail>
+                  <TableDetail key={index}> {element.caregiver_id.substring(0, 3)}... </TableDetail>
+                </TableRow>
+                );
+              })
+              }
+            </Table>
+          </TableWrapper>
+      </div>
     );
   }
 

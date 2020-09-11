@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
 import CaregiverVisits from './CaregiverVisits';
-// import CaregiverCheckInCheckOut from './CaregiverCheckInCheckOut'
-// import Events from './Events'
+import CaregiverCheckInCheckOut from './CaregiverCheckInCheckOut';
+import Events from './Events';
 // import Mood from './Mood'
 // import MentalHealth from './MentalHealth'
 // import PhysicalHealth from './PhysicalHealth'
@@ -18,10 +18,12 @@ class Dashboard extends React.Component {
 
     return(
       <div>
-        <h1>Dashboard</h1>
+        <h1>Dashboard Summary </h1> 
+        <h2>Date {}</h2>
         <CaregiverVisits />
-        {/* <CaregiverCheckInCheckOut />
+        <CaregiverCheckInCheckOut />
         <Events  />
+        {/* 
         <Mood />
         <MentalHealth />
         <PhysicalHealth />

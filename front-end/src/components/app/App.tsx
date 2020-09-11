@@ -4,7 +4,7 @@ import * as React from 'react';
 // import { Dispatch } from 'redux';
 import { GlobalStyle, AppContainer, Logo, Title, SubTitle } from './AppStyle';
 
-import Button from '@App/components/Button';
+import Button from '@App/components/ButtonStyle';
 import Dashboard from '../dashboard/Dashboard';
 const LogoUrl = require('../../assets/images/logo-birdie.svg');
 

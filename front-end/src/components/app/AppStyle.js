@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     height: 100vh;
     background-color: #F9F9F9;
+    font-family: sans-serif;
     > div {
       height: 100%;
     }
@@ -22,10 +23,11 @@ export const AppContainer = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative; 
-  top: 50%;
-  left: 50%;
+  /* top: 50%; */
+  /* left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%); */
+  /* transform: translate(-50%, 50%); */
 `;
 
 export const Title = styled.h1`

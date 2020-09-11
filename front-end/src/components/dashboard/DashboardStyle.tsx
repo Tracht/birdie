@@ -9,4 +9,10 @@ export const Dashboard = styled.div`
   flex-direction: column;
 `;
 
-export default Dashboard;
+export const DashboardTitle = styled.h2`
+  font-family: sans-serif;
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: mediumslateblue
+
+`;
