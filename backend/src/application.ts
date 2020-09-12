@@ -4,7 +4,7 @@ const app = express();
 const createError = require("http-errors");
 
 import {completedVisitsController} from "./controllers/completedVisits";
-import {caregiverCheckInOutTimesController} from "./controllers/caregiverCheckInOutTimes";
+import {caregiverVisitTimesController} from "./controllers/caregiverVisitTimes";
 import {eventTypeFreqController} from "./controllers/eventTypeFreq";
 import {generalObsController} from "./controllers/generalObs";
 import {moodObsController} from "./controllers/moodObs";
@@ -13,7 +13,7 @@ import {physicalHealthObsController} from "./controllers/physicalHealthObs";
 
 // CONTROLLERS
 app.use(completedVisitsController);
-app.use(caregiverCheckInOutTimesController);
+app.use(caregiverVisitTimesController);
 app.use(eventTypeFreqController);
 app.use(generalObsController);
 app.use(mentalHealthObsController);
