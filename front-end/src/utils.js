@@ -1,4 +1,4 @@
-export const dynamicSort = (property) => {
+export const sortObjByProperty = (property) => {
   var sortOrder = 1;
   if(property[0] === "-") {
       sortOrder = -1;

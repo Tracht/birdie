@@ -3,13 +3,14 @@ import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
+// Import Components
+import GeneralObservations from './GeneralObservations';
+import MentalHealth from './MentalHealth';
+import Mood from './Mood';
+import PhysicalHealth from './PhysicalHealth';
 import CaregiverVisits from './CaregiverVisits';
-import CaregiverCheckInCheckOut from './CaregiverCheckInCheckOut';
+import CaregiverVisitTimes from './CaregiverVisitTimes';
 import Events from './Events';
-// import Mood from './Mood'
-// import MentalHealth from './MentalHealth'
-// import PhysicalHealth from './PhysicalHealth'
-// import GeneralObservations from './GeneralObservations'
 
 // Create the Dasboard Component
 class Dashboard extends React.Component {
@@ -18,16 +19,16 @@ class Dashboard extends React.Component {
 
     return(
       <div>
-        <h1>Dashboard Summary </h1> 
         <h2>Date {}</h2>
-        <CaregiverVisits />
-        <CaregiverCheckInCheckOut />
-        <Events  />
-        {/* 
-        <Mood />
+        <h1>Wellbeing Summary </h1> 
+        <GeneralObservations /> 
         <MentalHealth />
+        <Mood />
         <PhysicalHealth />
-        <GeneralObservations /> */}
+        <h1>Administrative Summary </h1> 
+        <Events  />
+        <CaregiverVisits />
+        <CaregiverVisitTimes />
       </div>
     );
   }

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
 import { DashboardTitle } from './DashboardStyle';
+// Utils
+import { sortObjByProperty } from '../../utils';
 
 var data = [ 
   { 'count' : 3, 'caregiver_id' : '3cacba0a-6041-11e9-b63f-06a80bfbb33e' },
@@ -32,14 +34,13 @@ class CaregiverVisits extends React.Component {
 
   render() {
     return(
-
       <div>
         <DashboardTitle>Frequency of caregiver visits</DashboardTitle>
           <TableWrapper>
             <Table>
               <TableHeader>Number of Visits</TableHeader>
               <TableHeader>Caregiver ID</TableHeader>
-              { data.map( (element, index) => {
+              { data.sort(sortObjByProperty('count')).map( (element, index) => {
                 return (
                 <TableRow key={index}>
                   <TableDetail key={index}> {element.count} </TableDetail>
