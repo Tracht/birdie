@@ -3,34 +3,57 @@ import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-// Import Components
-import GeneralObservations from './GeneralObservations';
-import MentalHealth from './MentalHealth';
-import Mood from './Mood';
-import PhysicalHealth from './PhysicalHealth';
-import CaregiverVisits from './CaregiverVisits';
-import CaregiverVisitTimes from './CaregiverVisitTimes';
-import Events from './Events';
+// Import components
+import Button from '@App/components/ButtonStyle';
+import WellbeingDashboard from '../dashboardWellbeing/WellbeingDashboard';
+import CaregiverDashboard from '../caregiverDashboard/CaregiverDashboard';
+
+// Type Declaration 
+interface DashboardState {
+  whatIsDisplayed?: EventTarget & HTMLButtonElement | string;
+  clickHandler?: string;
+}
+interface DashboardProps {
+  whatIsDisplayed?: EventTarget & HTMLButtonElement | string;
+  clickHandler?: string;
+}
 
 // Create the Dasboard Component
-class Dashboard extends React.Component {
+class Dashboard extends React.Component<DashboardState, DashboardProps> {
+
+  constructor(props: DashboardProps) {
+    super(props);
+    this.state = { whatIsDisplayed: 'wellbeing' };
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+
+  clickHandler (event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+    this.setState({
+      whatIsDisplayed: event.currentTarget.value
+    });
+  }
 
   render() {
+    const whatIsDisplayed = this.state.whatIsDisplayed;
 
-    return(
-      <div>
-        <h2>Date {}</h2>
-        <h1>Wellbeing Summary </h1> 
-        <GeneralObservations /> 
-        <MentalHealth />
-        <Mood />
-        <PhysicalHealth />
-        <h1>Administrative Summary </h1> 
-        <Events  />
-        <CaregiverVisits />
-        <CaregiverVisitTimes />
-      </div>
-    );
+    if ( whatIsDisplayed === 'wellbeing' ) { 
+      return (
+        <div>
+          <Button onClick={this.clickHandler} name="caregiver" value="caregiver"> Caregiver data </Button>
+          <WellbeingDashboard />
+        </div>
+      );
+    } else if ( whatIsDisplayed === 'caregiver' ) { 
+      return (
+        <div>
+          <Button onClick={this.clickHandler} name="wellbeing" value="wellbeing"> Wellbeing summary </Button>
+          <CaregiverDashboard />
+        </div>
+      ); 
+    } else {
+      return null;
+    } 
   }
 
 }

@@ -4,17 +4,14 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 // Styles 
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
-import { DashboardTitle } from './DashboardStyle';
 // Utils
 import { sortObjByProperty } from '../../utils';
 
-class MoodData {
-  mood: string;
-  note: string | null;
+class PhysicalData {
+  note: string;
   utcDate: string;
   utcTime: string;
-  constructor(mood: string, note: string | null, utcDate: string, utcTime: string) {
-    this.mood = mood;
+  constructor(note: string, utcDate: string, utcTime: string) {
     this.note = note;
     this.utcDate = utcDate; 
     this.utcTime = utcTime;
@@ -22,42 +19,41 @@ class MoodData {
 }
 
 var newData = [
-  new MoodData('/', null, '2019-05-12', '04:20'), 
-  new MoodData('happy', 'smiling a lot', '2019-05-12', '10:20'), 
-  new MoodData('good', 'looked in a good state', '2019-05-12', '15:20'), 
+  new PhysicalData('Walking around fine, using walker', '2019-05-12', '17:22'), 
+  new PhysicalData('Was able to go up the stairs', '2019-05-12', '13:48'),
+  new PhysicalData('Able to use toilet okay', '2019-05-12', '06:51'),
+  new PhysicalData('Complained about hand pain - arthritis - may need to check meds', '2019-05-12', '09:51'),
 ];
 
 // var data = [
-//   {"mood":"\"happy\"","note":null,"utcDate":"2019-05-12","utcTime":"04:20"}
+//   {"physical_health_note":"\"[redacted] is well and happy \"","utcDate":"2019-05-11","utcTime":"03:35"},
+//   {"physical_health_note":"\"[redacted] well \"","utcDate":"2019-05-11","utcTime":"07:20"},
+//   {"physical_health_note":"\"[redacted] well. \"","utcDate":"2019-05-11","utcTime":"07:09"}
 // ]
 
-// // Typescript declarations 
-// interface MoodProps {
+// Typescript declarations 
+// interface PhysicalHealthProps {
 // }
-// interface MoodState {
+// interface PhysicalHealthState {
 // }
 
 // Create the Dasboard Component
-// class Mood extends React.Component<MoodProps, MoodState> {
-
-class Mood extends React.Component {
-  // constructor(props: MoodProps) {
+// class PhysicalHealth extends React.Component<PhysicalHealthProps, PhysicalHealthState> {
+class PhysicalHealth extends React.Component {
+  // constructor(props: PhysicalHealthProps) {
   //   super(props);
   // }
 
   render() {
     return(
       <div>
-        <DashboardTitle>Mood observations</DashboardTitle>
           <TableWrapper>
             <Table>
-              <TableHeader>Mood</TableHeader>
-              <TableHeader>Notes</TableHeader>
+              <TableHeader>Physical Health Observations</TableHeader>
               <TableHeader>Time</TableHeader>
               { newData.sort(sortObjByProperty('utcTime')).map( (element, index) => {
                 return (
                 <TableRow key={index}>
-                  <TableDetail key={index}> {element.mood} </TableDetail>
                   <TableDetail key={index}> {element.note} </TableDetail>
                   <TableDetail key={index}> {element.utcTime} </TableDetail>
                 </TableRow>
@@ -73,4 +69,4 @@ class Mood extends React.Component {
 
 const mapStateToProps = (state: RootState, ownProps: object) => {};
 const mapDispatchToProps = (dispatch: Dispatch<RootState>) => {};
-export default connect(mapStateToProps, mapDispatchToProps)(Mood);
+export default connect(mapStateToProps, mapDispatchToProps)(PhysicalHealth);

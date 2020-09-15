@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const TableHeader = styled.th`
   padding: 0.75em;
   height: 100%;
+  text-align: left;
   background-color: mediumslateblue;
   border-collapse: collapse;
   border-bottom: 2px solid;
@@ -16,7 +17,7 @@ export const TableRow = styled.tr`
 
 export const TableDetail = styled.td`
   border-top: 1px solid #dee2e6;
-  text-align: center;
+  text-align: left;
   padding: 8px;
   background-color: white;
   color: mediumslateblue;

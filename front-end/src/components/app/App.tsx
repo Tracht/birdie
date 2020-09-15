@@ -3,11 +3,11 @@ import * as React from 'react';
 // import { connect } from 'react-redux';
 // import { Dispatch } from 'redux';
 import { GlobalStyle, AppContainer, Logo, Title, SubTitle } from './AppStyle';
-
 import Button from '@App/components/ButtonStyle';
 import Dashboard from '../dashboard/Dashboard';
 const LogoUrl = require('../../assets/images/logo-birdie.svg');
 
+// Type Declaration 
 interface AppState {
   isHomePageHidden?: boolean;
   toggleHomePageHidden?: boolean;
@@ -40,7 +40,7 @@ class App extends React.Component<AppProps, AppState> {
         <div>
           <GlobalStyle />
           <AppContainer>
-            <Logo src={LogoUrl} />
+          <Logo src={LogoUrl} />
             <Title> Welcome </Title>
             <SubTitle> Let's see how your loved one is doing </SubTitle>
             <Button onClick={this.toggleHomePageHidden} > Go to dashboard! </Button>
@@ -52,7 +52,7 @@ class App extends React.Component<AppProps, AppState> {
         <div>
           <GlobalStyle />
           <AppContainer>
-            <Logo src={LogoUrl} />
+          <Logo src={LogoUrl} />
             <Button onClick={this.toggleHomePageHidden} > Go to homepage </Button>
             <Dashboard />
           </AppContainer>

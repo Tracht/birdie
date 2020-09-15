@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 // Styles 
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
-import { DashboardTitle } from './DashboardStyle';
 // Utils
 import { sortObjByProperty } from '../../utils';
 
@@ -50,10 +49,9 @@ class GeneralObservations extends React.Component {
   render() {
     return(
       <div>
-        <DashboardTitle>General observations</DashboardTitle>
           <TableWrapper>
             <Table>
-              <TableHeader>Notes</TableHeader>
+              <TableHeader>General Observations</TableHeader>
               <TableHeader>Time</TableHeader>
               { newData.sort(sortObjByProperty('utcTime')).map( (element, index) => {
                 return (

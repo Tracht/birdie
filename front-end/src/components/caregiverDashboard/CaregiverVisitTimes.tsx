@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 // Styled Components
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
-import { DashboardTitle } from './DashboardStyle';
 // Utils
 import { sortObjByProperty } from '../../utils';
 
@@ -13,7 +12,7 @@ class VisitTimes {
     caregiverId: string;
     utcTime: string;
     constructor( eventType: string, caregiverId: string, utcTime: string) {
-      this.eventType = eventType;
+      this.eventType = eventType.replace(/_/g, ' ');
       this.caregiverId = caregiverId;
       this.utcTime = utcTime;
     }
@@ -81,18 +80,15 @@ class CaregiverVisitTimes extends React.Component {
   render() {
     return(
       <div>
-      <DashboardTitle>Visits</DashboardTitle>
         <TableWrapper>
           <Table>
             <TableHeader>Caregiver ID</TableHeader>
-            <TableHeader>Check in</TableHeader>
-            <TableHeader>Check out</TableHeader>
-            { newData.sort(sortObjByProperty('caregiver_id')).map( (element) => {
+            <TableHeader>Time</TableHeader>
+            { newData.sort(sortObjByProperty('caregiverId')).map( (element) => {
               return (
               <TableRow key={element.caregiverId}>
                 <TableDetail key={element.caregiverId}> {element.caregiverId.substring(0, 8)}... </TableDetail>
-                <TableDetail key={element.caregiverId}> {element.utcTime} </TableDetail>
-                <TableDetail key={element.caregiverId}> {element.utcTime} </TableDetail>
+                <TableDetail key={element.caregiverId}> {element.eventType} {element.utcTime} </TableDetail>
               </TableRow>
               );
             })

@@ -3,14 +3,14 @@ import { RootState } from '@App/store/reducers/reducerIndex';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 // Styled components
-import { DashboardTitle } from './DashboardStyle';
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
+import { DashboardTitle } from '../dashboard/DashboardStyle';
 
 class Frequency {
     eventType: string;
     count: number;
     constructor( eventType: string, count: number ) {
-      this.eventType = eventType.replace(/_g/, ' '); // this is to remove underscore
+      this.eventType = eventType.replace(/_/g, ' ');
       this.count = count;
     }
 }
@@ -63,19 +63,23 @@ class Events extends React.Component {
   render() {
     return(
       <div>
-        <DashboardTitle>Number of observations</DashboardTitle>
-
+        <DashboardTitle>Food and Drink</DashboardTitle>
         <TableWrapper>
           <Table>
-            <TableHeader>Type of event </TableHeader>
-            <TableHeader>Frequency </TableHeader>
+            <TableHeader>Type of observation </TableHeader>
+            <TableHeader>Total observations by various caregivers </TableHeader>
             { newData.map((element: Frequency, index: number) => {
+
+              if (element.eventType === 'task completion reverted') {
+                return null;
+              } else {
                 return (
                   <TableRow key={index}>
                     <TableDetail key={index}> {element.eventType} </TableDetail>
                     <TableDetail key={index}> {element.count} </TableDetail>
                   </TableRow>
                 );
+                }   
               })
             }
           </Table>
