@@ -8,12 +8,12 @@ import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../Tabl
 import { sortObjByProperty } from '../../utils';
 
 class MoodData {
-  mood: string;
+  mood: string | null;
   note: string | null;
   utcDate: string;
   utcTime: string;
   constructor(mood: string, note: string | null, utcDate: string, utcTime: string) {
-    this.mood = mood;
+    this.mood = mood.replace(/\s+(\W)/g, '$1');
     this.note = note;
     this.utcDate = utcDate; 
     this.utcTime = utcTime;

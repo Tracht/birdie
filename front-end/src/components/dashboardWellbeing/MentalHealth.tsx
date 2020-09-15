@@ -12,7 +12,7 @@ class MentalHealthData {
   utcDate: string;
   utcTime: string;
   constructor(mentalHealthNote: string, utcDate: string, utcTime: string) {
-    this.mentalHealthNote = mentalHealthNote;
+    this.mentalHealthNote = mentalHealthNote.replace(/\s+(\W)/g, '$1');
     this.utcDate = utcDate; 
     this.utcTime = utcTime;
   }

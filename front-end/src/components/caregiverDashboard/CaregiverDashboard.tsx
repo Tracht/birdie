@@ -16,9 +16,9 @@ class CaregiverDashboard extends React.Component {
     return(
     <div>
       <DashboardTitle>Caregiver Summary </DashboardTitle> 
+      <Events /> 
       <CaregiverVisits />
       <CaregiverVisitTimes />
-      <Events /> 
     </div>
     );
   }

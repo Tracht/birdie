@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 // Styled components
 import { TableWrapper, Table, TableRow, TableHeader, TableDetail } from '../TableStyle';
-import { DashboardTitle } from '../dashboard/DashboardStyle';
 
 class Frequency {
     eventType: string;
@@ -29,6 +28,8 @@ new Frequency('task_completed', 27),
 new Frequency('task_completion_reverted', 1),
 new Frequency('visit_completed', 8),
 ];
+
+var validEvents = ['check in', 'check out', 'visit completed'];
 
 // var data = [ 
 //   {'eventType' : 'check_in', 'count' : 9}, 
@@ -63,23 +64,23 @@ class Events extends React.Component {
   render() {
     return(
       <div>
-        <DashboardTitle>Food and Drink</DashboardTitle>
         <TableWrapper>
           <Table>
-            <TableHeader>Type of observation </TableHeader>
-            <TableHeader>Total observations by various caregivers </TableHeader>
+            <TableHeader>Events</TableHeader>
+            <TableHeader>Frequency </TableHeader>
             { newData.map((element: Frequency, index: number) => {
 
-              if (element.eventType === 'task completion reverted') {
-                return null;
-              } else {
+              if (validEvents.includes(element.eventType)) {
                 return (
                   <TableRow key={index}>
                     <TableDetail key={index}> {element.eventType} </TableDetail>
                     <TableDetail key={index}> {element.count} </TableDetail>
                   </TableRow>
                 );
-                }   
+              } else { 
+                return null; 
+                }
+                   
               })
             }
           </Table>

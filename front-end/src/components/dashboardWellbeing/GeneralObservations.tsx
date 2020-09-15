@@ -19,7 +19,7 @@ class GeneralObs {
   utcTime: string;
 
   constructor(note: string, utcDate: string, utcTime: string) {
-    this.note = note;
+    this.note = note.replace(/\s+(\W)/g, '$1');
     this.utcDate = utcDate; 
     this.utcTime = utcTime;
   }
