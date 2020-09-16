@@ -3,7 +3,11 @@
 # Birdie Developer Test
 
 ## Preview
+![image](https://user-images.githubusercontent.com/28805811/93329569-4b53b480-f815-11ea-8298-4a8fe019f110.png)
 
+![image](https://user-images.githubusercontent.com/28805811/93329593-53abef80-f815-11ea-9eb9-c6c6a6f45aca.png)
+
+![image](https://user-images.githubusercontent.com/28805811/93329628-60c8de80-f815-11ea-96fe-80f749ebea54.png)
 
 ## Context
 At Birdie, our app allows care givers to record observations of older adults receiving care, we name them **care recipients**.
