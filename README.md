@@ -1,7 +1,9 @@
 [![Tracht](https://circleci.com/gh/Tracht/birdie.svg?style=shield)](https://app.circleci.com/pipelines/github/Tracht/birdie)
 
 # Birdie Developer Test
-We would like to thank you for taking our developer test. We understand that often candidates will have many of these tests to complete. Therefore we think it's important to cut straight to the important stuff. With that in mind, we've gone ahead and created a boilerplate that mostly represents the kind of technical stack we work with. This saves you from having to create needless boilerplate code that does little to demonstrate your potential as a developer.
+
+## Preview
+
 
 ## Context
 At Birdie, our app allows care givers to record observations of older adults receiving care, we name them **care recipients**.
@@ -38,28 +40,16 @@ On top of that, there can be **additional properties** based on the `event_type`
 The database (we should have sent you credentials) contains some of these observation events, within the `events` table.
 
 ## Challenge
-
 *Display the information to a family member*
 
-#### Your challenge is to clone this repository and create a small web application to visualize these observations, so that looking at it is valuable to a family member of this care recipient.
+#### Your challenge is to create a small web application to visualize these observations, so that looking at it is valuable to a family member of this care recipient.
 
-This could mean presenting it in the following forms:
-
+This could mean presenting it in the following forms or in any combination of the below. 
  - A table
  - A graph
  - A timeline
 
- Or any other way/combination of those. We are test driven here at Birdie so please make sure you write tests to validate your work.
-
-## Deliverables
-
-- Put your code on Github and send us the link to the repository
-- Deploying the code to a platform like [Heroku](https://heroku.com) is a great plus.
-- **If you are unable to deploy your code please send a recording of the application working**
-
-## Set up
-
-Here's the technical stack this boilerplate was made with:
+## Tech Stack
 
 ### Front end
 * [React](https://reactjs.org/)
@@ -73,16 +63,7 @@ Here's the technical stack this boilerplate was made with:
 * [MySQL](https://www.mysql.com/)
 * [TypeScript](https://www.typescriptlang.org/)
 
-## Usage
-
-1. Start the API. (Run the following commands within the `backend` folder)
-
-   a. Install the dependencies: `npm install`
-   
-   b. Run the HTTP server (will start on port `8000`) `npm run dev`
-
-2. Start the React app  (Run the following commands within the `front-end` folder)
-
-    a. Install the dependencies: `npm install`
-   
-   b. Run the application (will start on port `3000`) `npm start`
+## Run on your local
+1. Clone the repository.
+2. To see the API calls, go into the `backend` folder and run `npm install` to install dependencies. Then, run the HTTP server (it will be on port 8000) using the command `npm run dev`.
+3. To start the React App, go into the `front-end` folder and run `npm install` to install dependencies. Then, run the application (it will be on port 3000) using the command `npm start`.
