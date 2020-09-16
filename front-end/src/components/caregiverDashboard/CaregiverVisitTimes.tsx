@@ -83,7 +83,7 @@ class CaregiverVisitTimes extends React.Component {
         <TableWrapper>
           <Table>
             <TableHeader>Caregiver ID</TableHeader>
-            <TableHeader>Time</TableHeader>
+            <TableHeader>Check in / Check out times</TableHeader>
             { newData.sort(sortObjByProperty('caregiverId')).map( (element) => {
               return (
               <TableRow key={element.caregiverId}>
